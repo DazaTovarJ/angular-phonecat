@@ -1,8 +1,9 @@
 logs/*
 !.gitkeep
 node_modules/
-app/lib/
+public/lib/
 tmp
 .DS_Store
 .idea
 angular-phonecat-snapshots
+dist
