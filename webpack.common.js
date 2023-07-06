@@ -30,7 +30,7 @@ module.exports = {
         },
       },
       {
-        test: /\.component\.html?$/,
+        test: /\.(component|template)\.html?$/,
         type: "asset/source",
       },
     ],
