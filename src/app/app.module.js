@@ -6,6 +6,9 @@ import { coreModule } from "./core/core.module";
 import { phoneDetailModule } from "./phone-detail/phone-detail.module";
 import { phoneListModule } from "./phone-list/phone-list.module";
 
+import "./app.css";
+import "./app.animations.css";
+
 // Define the `phonecatApp` module
 export const appModule = angular
   .module("phonecatApp", [

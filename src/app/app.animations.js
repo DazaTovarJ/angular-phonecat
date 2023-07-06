@@ -1,5 +1,3 @@
-"use strict";
-
 export function phoneAnimationFactory() {
   return {
     addClass: animateIn,
