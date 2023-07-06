@@ -3,7 +3,7 @@
 describe('phoneDetail', function() {
 
   // Load the module that contains the `phoneDetail` component before each test
-  beforeEach(module('phoneDetail'));
+  beforeEach(angular.mock.module('phoneDetail'));
 
   // Test the controller
   describe('PhoneDetailController', function() {
@@ -13,7 +13,7 @@ describe('phoneDetail', function() {
       images: ['image/url1.png', 'image/url2.png']
     };
 
-    beforeEach(inject(function($componentController, _$httpBackend_, $routeParams) {
+    beforeEach(angular.mock.inject(function($componentController, _$httpBackend_, $routeParams) {
       $httpBackend = _$httpBackend_;
       $httpBackend.expectGET('phones/xyz.json').respond(xyzPhoneData);
 

@@ -3,13 +3,13 @@
 describe('phoneList', function() {
 
   // Load the module that contains the `phoneList` component before each test
-  beforeEach(module('phoneList'));
+  beforeEach(angular.mock.module('phoneList'));
 
   // Test the controller
   describe('PhoneListController', function() {
     var $httpBackend, ctrl;
 
-    beforeEach(inject(function($componentController, _$httpBackend_) {
+    beforeEach(angular.mock.inject(function($componentController, _$httpBackend_) {
       $httpBackend = _$httpBackend_;
       $httpBackend.expectGET('phones/phones.json')
                   .respond([{name: 'Nexus S'}, {name: 'Motorola DROID'}]);
