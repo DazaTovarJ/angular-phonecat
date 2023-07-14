@@ -4,13 +4,17 @@ export function phoneAnimationFactory() {
     removeClass: animateOut,
   };
 
-  function animateIn(element, className, done) {
-    if (className !== "selected") return;
+  function animateIn(
+    element: JQuery<HTMLElement>,
+    className: string,
+    done: Function
+  ) {
+    if (className !== 'selected') return;
 
     element
       .css({
-        display: "block",
-        position: "absolute",
+        display: 'block',
+        position: 'absolute',
         top: 500,
         left: 0,
       })
@@ -21,17 +25,21 @@ export function phoneAnimationFactory() {
         done
       );
 
-    return function animateInEnd(wasCanceled) {
+    return function animateInEnd(wasCanceled: boolean) {
       if (wasCanceled) element.stop();
     };
   }
 
-  function animateOut(element, className, done) {
-    if (className !== "selected") return;
+  function animateOut(
+    element: JQuery<HTMLElement>,
+    className: string,
+    done: Function
+  ) {
+    if (className !== 'selected') return;
 
     element
       .css({
-        position: "absolute",
+        position: 'absolute',
         top: 0,
         left: 0,
       })
@@ -42,7 +50,7 @@ export function phoneAnimationFactory() {
         done
       );
 
-    return function animateOutEnd(wasCanceled) {
+    return function animateOutEnd(wasCanceled: boolean) {
       if (wasCanceled) element.stop();
     };
   }
