@@ -23,6 +23,7 @@
     "@types/angular-route": "^1.7.3",
     "@types/angular-sanitize": "^1.8.1",
     "@types/jasmine": "^4.3.5",
+    "@types/jquery": "^3.5.16",
     "@types/node": "^20.4.2",
     "angular-mocks": "1.8.x",
     "copy-webpack-plugin": "^11.0.0",
