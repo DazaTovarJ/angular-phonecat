@@ -1,6 +1,8 @@
 const path = require("path");
 
 const { merge } = require("webpack-merge");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const ForkTsCheckerNotifierWebpackPlugin = require("fork-ts-checker-notifier-webpack-plugin");
 
 const webpackCommon = require("./webpack.common");
 
@@ -25,7 +27,19 @@ module.exports = (env, argv) => {
   /**
    * @type {import("webpack").Configuration}
    */
-  const appConfig = {};
+  const appConfig = {
+    plugins: [
+      new ForkTsCheckerWebpackPlugin({
+        typescript: {
+          configFile: path.resolve(__dirname, "tsconfig.app.json"),
+        },
+      }),
+      new ForkTsCheckerNotifierWebpackPlugin({
+        title: "TypeScript",
+        excludeWarnings: false,
+      }),
+    ],
+  };
   if (!argv.mode) {
     appConfig.mode = "production";
   }

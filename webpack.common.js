@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
  */
 module.exports = {
   entry: {
-    app: "./src/main.js",
+    app: "./src/main.ts",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -17,6 +17,14 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /.([cm]?ts|tsx)$/,
+        use: {
+          loader: "ts-loader",
+          options: { transpileOnly: true },
+        },
+        exclude: /node_modules/,
+      },
       {
         test: /\.(woff|woff2|eot|ttf|svg|png|jpg|gif)$/,
         type: "asset",
@@ -34,6 +42,14 @@ module.exports = {
         type: "asset/source",
       },
     ],
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+    extensionAlias: {
+      ".ts": [".js", ".ts"],
+      ".cts": [".cjs", ".cts"],
+      ".mts": [".mjs", ".mts"],
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
