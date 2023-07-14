@@ -31,20 +31,20 @@ module.exports = function (config) {
         included: false,
         watched: false,
       },
-      "src/test.js",
-      { pattern: "**/*.module.js", included: false, watched: true },
-      { pattern: "*!(.module|.spec).js", included: false, watched: true },
+      "src/test.ts",
+      { pattern: "src/app/**/*.module.[j|t]s", included: false, watched: true },
+      { pattern: "*!(.module|.spec).[j|t]s", included: false, watched: true },
       {
-        pattern: "!(node_modules)/**/*!(.module|.spec).js",
+        pattern: "!(node_modules)/**/*!(.module|.spec).[j|t]s",
         included: false,
         watched: true,
       },
-      { pattern: "**/*.spec.js", included: false, watched: true },
+      { pattern: "src/app/**/*.spec.[j|t]s", included: false, watched: true },
       { pattern: "**/*.html", included: false, watched: true },
     ],
 
     preprocessors: {
-      "src/test.js": ["webpack"],
+      "src/test.ts": ["webpack"],
     },
 
     client: {
@@ -60,7 +60,7 @@ module.exports = function (config) {
       suppressAll: true, // removes the duplicated traces
     },
     coverageReporter: {
-      dir: path.join(__dirname, "./coverage/ma-angular-test"),
+      dir: path.join(__dirname, "./coverage/angular-phonecat"),
       subdir: ".",
       reporters: [{ type: "html" }, { type: "text-summary" }],
     },
